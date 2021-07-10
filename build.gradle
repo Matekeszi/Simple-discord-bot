@@ -1,0 +1,39 @@
+plugins {
+    id 'java'
+}
+
+apply plugin: 'application'
+mainClassName = 'com.matekeszi.discord.bot.Application'
+
+group 'com.matekeszi.discord.bot'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven {
+        name 'm2-dv8tion'
+        url 'https://m2.dv8tion.net/releases'
+    }
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile 'net.dv8tion:JDA:4.3.0_277'
+    implementation 'com.google.guava:guava:29.0-jre'
+    compileOnly 'org.projectlombok:lombok:1.18.16'
+    annotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.16'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.16'
+
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.0.1'
+    implementation group: 'org.springframework', name: 'spring-web', version: '5.3.8'
+
+}
+
+application {
+    applicationDefaultJvmArgs = ['-Dfile.encoding=utf-8']
+}
